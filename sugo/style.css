@@ -1,0 +1,46 @@
+body {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.options {
+    font-size: 30px;
+}
+
+.options p {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.panelpic {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    font-size: 30px;
+    text-align: justify;
+}
+
+ul li {
+    font-size: 30px;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+    row-gap: 100px;
+    column-gap: 100px;
+}
+
+.clickable {
+    cursor: pointer;
+}

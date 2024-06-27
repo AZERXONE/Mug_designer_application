@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mug app súgó</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 style="font-size: 60px;">A bögre app súgója!</h1>
+    <div class="options">
+    <p>A súgó részei:</p>
+    <ul>
+        <li onclick="smoothScroll(1)" class="clickable">Az appról</li>
+        <li onclick="smoothScroll(2)" class="clickable">App részek</li>
+        <ul>
+            <li onclick="smoothScroll(3)" class="clickable">Menüpontok</li>
+            <li onclick="smoothScroll(4)" class="clickable">Csúszkák</li>
+            <li onclick="smoothScroll(5)" class="clickable">Kiválasztott rész/szín</li>
+            <li onclick="smoothScroll(6)" class="clickable">Színválasztó</li>
+            <li onclick="smoothScroll(7)" class="clickable">Megjelenítési panel</li>
+            <li onclick="smoothScroll(8)" class="clickable">A bögre adatai</li>
+        </ul>
+        <li onclick="smoothScroll(9)" class="clickable">Galléria</li>
+    </ul>
+    </div>
+    <hr>
+    <div class="about" id="ab">
+        <h1>Az appról</h1>
+        <p>A feladat egy hétköznapi tárgy megvalósítása egy GUI-ban (Graphical User Interface). 
+            Az általam választott tárgy egy bögre volt. Mivel a bögrék végtelen sok formát öltenek, ezért 
+            az egyszerűség kedvéért négyzetek és ellipszisek alkotják a bögrék struktúráját. A bögre kinézetét és formáját csúszkák segítségével és egy színválasztó panellal lehet módosítani. Bizonyos feltételek mellett a bögrék sokasága korlátlan!
+        </p>
+    </div>
+    <hr>
+    <div class="appoptions" id="appopt">
+        <h1>App részek</h1>
+        <img class="panelpic" src="./img/panel.PNG" alt="">
+        <p>A grafikus felület 6 különböző részből áll, ezek a következők:</p>
+        <ul>
+            <li>Menüpontok</li>
+            <li>Csúszkák</li>
+            <li>Kiválasztott rész/szín</li>
+            <li>Szín választás</li>
+            <li>megjelenítési panel</li>
+            <li>A bögre adatai</li>
+        </ul>
+        <p>
+            A minél jobb átláthatóság érdekében a program nincs telezsúfolva fölösleges panelokkal, csak a lényeg lett kiemelve. A grafikus felület 3 részre bontható, a menüpontok, a paraméterkezelők és a megjelenítési panel. Ez a szétosztás segíti a felhasználót abban, hogy minél hatékonyabban tudjon dolgozni azáltal, hogy a grafikus elemek panelokba tagolva vannak elrendezve.
+            A program törekszik az abszolút grafikus kezelésre. Minden bögrén állítható tulajdonság grafikusan kezelhető (ilyen pl.: kurzorral kiválasztható bögre rész, színválasztás, stb.). Az egyetlen hely, ahol gépelésre van szükségünk az a fájlválasztás, ahol a mentésre/betöltésre/törlésre váró fájlnevet kell begépelni.
+        </p>
+    </div>
+    <hr>
+    <div class="menus" id="menus">
+        <h1>Menüpontok</h1>
+        <img class="panelpic" style="width: 20%;" src="./img/options.PNG" alt="">
+        <p>A menü panel 4 különböző menüponttal van ellátva, ezek neve és feladata:</p>
+        <ul>
+            <li>Törlés: Kitöröl egy, a felhasználó által begépelt fájlt.</li>
+            <li>Mentés: Elment egy, a felhasználó által megadott nevű fájlt.</li>
+            <li>Betöltés: Betölt egy, a felhasználó által begépelt fájlt.</li>
+            <li>Súgó: Átirányít az oldal súgójának weboldalára.</li>
+        </ul>
+        <p>Fájl megadásakor ne adjuk meg a mugdirectory/ vagy a .txt kiterjesztést, ezek automatikusan deklarálva vannak.</p>
+    </div>
+    <hr>
+    <div class="csuszkak" id="csuszkak">
+        <h1>Csúszkák</h1>
+        <img class="panelpic" style="width: 15%;" src="./img/csuszkak.PNG" alt="">
+        <p>A bögre méreteinek állítása csúszkák segítségével történik. A méretek sorra x_szélesség, y_szélesség, magasság. Ezek 25-100mm-ig terjednek. A csúszkák egymástól teljesen függetlenül változtathatók.</p>
+    </div>
+    <hr>
+    <div class="kiva" id="kiva">
+        <h1>Kiválasztott rész/szín</h1>
+        <img class="panelpic" style="width: 15%;" src="./img/select.PNG" alt="">
+        <p>A kiválasztott rész/szín panelnál fontos megemlíteni a kiválasztott színt. Mint az az ábrán is jól látható, a kiválasztott színtől függ a betűszín. Ennek oka, hogy egy átlag felhasználónak az RGB színek számszerinti kiírása semmitmondó lett volna, így ezt elkerülve a betűszín színe változó lett. Ha nincs semmilyen szín kiválasztva, akkor a szöveg „Selected” helyett „None” szöveget fogja kiírni és a szín feketére vált.</p>
+    </div>
+    <hr>
+    <div class="szin" id="szin">
+        <h1>Színválasztó</h1>
+        <img class="panelpic" style="width: 35%;" src="./img/color.PNG" alt="">
+        <p>A színválasztó gomb (Pick a color) lenyomásával egy grafikus felület nyílik meg, ahol 5 különböző színpaletta közül lehet megadni milyen színnel szeretnénk dolgozni (ilyenek pl.: RGB, CMYK, stb.).</p>
+    </div>
+    <hr>
+    <div class="megpan" id="megpan">
+        <h1>Megjelenítési panel</h1>
+        <img class="panelpic" style="width: 35%;" src="./img/megjen.PNG" alt="">
+        <p>A program 3 különböző nézetből jeleníti meg a tárgyat. Felülről, alulról és oldalról. Ezekről példákat ide kattintva láthat!</p>
+    </div>
+    <hr>
+    <div class="adat" id="adat">
+        <h1>A bögre adatai</h1>
+        <img class="panelpic" style="width: 20%;" src="./img/adat.PNG" alt="">
+        <p>A bögre adatai menüpont az alábbi adatokat írja ki:</p>
+        <ul>
+            <li>Név: A fájl neve</li>
+            <li>Dátum: A jelenlegi dátum vagy a mentett dátum</li>
+            <li>Méretek: A méretek x_szélesség, y_szélesség, magasság</li>
+            <li>Terület: A bögre területe</li>
+            <li>Térfogat: A bögre térfogata</li>
+        </ul>
+        <p>A dátum a program megnyitásakor a jelenlegi dátumot írja ki ÉÉÉÉ-HH-NN formátumban, azonban fájl betöltésekor az adott fájl mentési dátumát fogja megjeleníteni.</p>
+    </div>
+    <hr>
+    <div class="gallery" id="gallery">
+        <h1>Galléria</h1>
+        <div class="images">
+            <img class="panelpic" style="width: 80%;" src="./img/bogre1.png" alt="">
+            <img class="panelpic" style="width: 80%;" src="./img/bogre2.png" alt="">
+            <img class="panelpic" style="width: 80%;" src="./img/bogre3.png" alt="">
+            <img class="panelpic" style="width: 80%;" src="./img/bogre4.png" alt="">
+            <img class="panelpic" style="width: 80%;" src="./img/bogre5.png" alt="">
+            <img class="panelpic" style="width: 80%;" src="./img/bogre6.png" alt="">
+        </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <br>
+        <p>Készítette: Dóka Róbert</p>
+        <p>2024</p>
+        <br>
+    </div>
+    <script>
+        function smoothScroll(n){
+            console.log(n)
+            loc = ""
+            if(n == 1) {
+                loc = "ab"
+            }
+            else if(n == 2) {
+                loc = "appopt"
+            }
+            else if(n == 3) {
+                loc = "menus"
+            }
+            else if(n == 4) {
+                loc = "csuszkak"
+            }
+            else if(n == 5) {
+                loc = "kiva"
+            }
+            else if(n == 6) {
+                loc = "szin"
+            }
+            else if(n == 7) {
+                loc = "megpan"
+            }
+            else if(n == 8) {
+                loc = "adat"
+            }
+            else if(n == 9) {
+                loc = "gallery"
+            }
+            document.getElementById(loc).scrollIntoView({
+            behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
