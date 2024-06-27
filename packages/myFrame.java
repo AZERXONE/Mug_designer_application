@@ -1,19 +1,13 @@
 package packages;
 
-import java.awt.BasicStroke;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridLayout;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
 import java.io.File;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.Random;
 
@@ -259,11 +253,11 @@ public class myFrame extends JFrame{
         mugsize.setBounds(590,370,250,100);
 
         mugarea = new JLabel();
-        mugarea.setText("-  Kerület: " + String.format("%.2f",(1 * ((float)slider1.getValue()/10) * ((float)slider2.getValue())/10) + (2* ((float)slider1.getValue()/10) * ((float)slider3.getValue())/10) + (2 * ((float)slider3.getValue()/10) * ((float)slider2.getValue()/10))) + "cm^2");
+        mugarea.setText("-  Kerület: " + String.format("%.2f",((float)slider1.getValue()/10)/2 * ((float)slider2.getValue()/10)/2 * 3.14 + 2 * 3.14 * Math.sqrt((Math.pow(((float)slider1.getValue()/10)/2,2) + Math.pow(((float)slider2.getValue()/10)/2,2))/2) * ((float)slider3.getValue()/10)) + "cm^2");
         mugarea.setBounds(590,400,250,100);
 
         mugvolume = new JLabel();
-        mugvolume.setText("-  Térfogat: " + String.format("%.2f",((float)slider1.getValue()/10) * ((float)slider2.getValue()/10) * ((float)slider3.getValue()/10)) + "cm^3");
+        mugvolume.setText("-  Térfogat: " + String.format("%.2f",((float)slider1.getValue()/10)/2 * ((float)slider2.getValue()/10)/2 * 3.14 * ((float)slider3.getValue()/10)) + "cm^3");
         mugvolume.setBounds(590,430,150,100);
 
         try {
@@ -300,8 +294,8 @@ public class myFrame extends JFrame{
 
     public void changevalues() {
         mugsize.setText("-  Méret: "+ slider1.getValue() +"mm x "+ slider2.getValue() +"mm x "+ slider3.getValue() + "mm");
-        mugarea.setText("-  Kerület: " + String.format("%.2f",(1 * ((float)slider1.getValue()/10) * ((float)slider2.getValue())/10) + (2* ((float)slider1.getValue()/10) * ((float)slider3.getValue())/10) + (2 * ((float)slider3.getValue()/10) * ((float)slider2.getValue()/10))) + "cm^2");
-        mugvolume.setText("-  Térfogat: " + String.format("%.2f",((float)slider1.getValue()/10) * ((float)slider2.getValue()/10) * ((float)slider3.getValue()/10)) + "cm^3");
+        mugarea.setText("-  Kerület: " + String.format("%.2f",((float)slider1.getValue()/10)/2 * ((float)slider2.getValue()/10)/2 * 3.14 + 2 * 3.14 * Math.sqrt((Math.pow(((float)slider1.getValue()/10)/2,2) + Math.pow(((float)slider2.getValue()/10)/2,2))/2) * ((float)slider3.getValue()/10)) + "cm^2");
+        mugvolume.setText("-  Térfogat: " + String.format("%.2f",((float)slider1.getValue()/10)/2 * ((float)slider2.getValue()/10)/2 * 3.14 * ((float)slider3.getValue()/10)) + "cm^3");
     }
 
     class colorlistener implements ActionListener {
@@ -569,9 +563,12 @@ public class myFrame extends JFrame{
         @Override
         public void menuSelected(MenuEvent e) {
             // TODO Auto-generated method stub
-            JOptionPane.showMessageDialog(null, "A Bögre app!\nKészítette: Dóka Róbert\nNeptun: CGITAR\n\nA program képes 3 különböző nézőpontot bemutatni. Csúszkák segítségével\n a bögrét lehet méretezni. A színválasztóval pedig a kijelökt bögre részt lehet színezni.", "Information", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                Desktop.getDesktop().browse(new URL("https://bogreappsugo.netlify.app").toURI());
+            } catch (Exception r) {
+                JOptionPane.showMessageDialog(null, "No internet connection","Error",JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-
         @Override
         public void menuDeselected(MenuEvent e) {
             // TODO Auto-generated method stub
